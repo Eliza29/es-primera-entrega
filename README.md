@@ -8,8 +8,9 @@ Implementación de un servidor de aplicación basado en plataforma Node.js y exp
 Devuelve un array con todos los productos disponibles.
 https://melon-ivy-pig.glitch.me/api/productos
 
-La ruta base 'api/productos' tiene implementada cuatro funcionalidades:
+La ruta base 'api/productos' tiene implementada las siguientes funcionalidades:
 * GET: '/' Lista todos los productos disponibles
+* GET: '/:id' Lista el producto correspondiente a su id
 * POST: '/' Agrega un producto al listado
 * PUT: ':id' Actualiza un producto por su id
 * DELETE: '/:id' Borra un producto por su id 
