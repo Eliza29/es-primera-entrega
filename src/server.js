@@ -9,17 +9,31 @@ const carritosApi = new ContenedorArchivo('dbCarritos.json')
 
 const app = express()
 
-
 //--------------------------------------------
 // permisos de administrador MIDDLEWARES
 
 const esAdmin = true
 
 function crearErrorNoEsAdmin(ruta, metodo) {
-    
+    const error = {
+        error: -1
+    }
+    if(ruta && metodo){
+        error.description =  `ruta ${ruta} metodo ${metodo} no autorizado`
+    }else{
+        error.description = 'no autorizado'
+    }
+    return error
 }
 
 function soloAdmins(req, res, next) {
+    if(esAdmin){
+        console.log('solo admins')
+        next();
+        
+    }else{
+        res.json(crearErrorNoEsAdmin());
+    }
 }
 
 //--------------------------------------------
@@ -33,17 +47,17 @@ productosRouter.get('/', async(req, res) => {
     res.json(productos)
 })
 
-productosRouter.post('/', async(req, res) => {
+productosRouter.post('/', soloAdmins, async(req, res) => {
     const productos = await productosApi.guardar(req.body)
     res.json(productos)
 })
-productosRouter.put('/:id', async(req, res, ) => {
+productosRouter.put('/:id', soloAdmins, async(req, res, ) => {
     const id = req.params.id;
     const producto = await productosApi.actualizar(req.body,id)
     res.json(producto)
 });
 
-productosRouter.delete('/:id', async(req, res) => {
+productosRouter.delete('/:id', soloAdmins, async(req, res) => {
     const id = req.params.id;
     const producto = await productosApi.borrar(id)
     res.json(producto)

@@ -40,11 +40,11 @@ class ContenedorArchivo {
          
             if(info.length>0){
                 let id =  info.length + 1
-                info.push({...obj, id: id})
+                info.push({...obj, id: id, timestamp: new Date().getTime()})
                 await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(info, null,2))
                 return info
             }else{
-                info.push({...obj, id: 1})
+                info.push({...obj, id: 1, timestamp: new Date().getTime()})
                 await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(info, null,2))
                 return info
             }
@@ -118,11 +118,11 @@ class ContenedorArchivo {
             const info = await JSON.parse(contenido)
             if(info.length>0){
                 let id =  info.length + 1
-                info.push({id: id, productos: []})
+                info.push({id: id, timestamp: new Date().getTime(), productos: []})
                 await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(info, null,2))
                 return info
             }else{
-                info.push({id: 1, productos: []})
+                info.push({id: 1, timestamp: new Date().getTime(), productos: []})
                 await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(info, null,2))
                 return info
             }
@@ -156,11 +156,11 @@ class ContenedorArchivo {
                 let productos = await findById.productos
                 if(productos.length>0){
                     let id =  productos.length + 1
-                    productos.push({...obj, id: id})
+                    productos.push({...obj, id: id, timestamp: new Date().getTime()})
                     await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(info, null,2))
                     return productos
                 }else{
-                    productos.push({...obj, id: 1})
+                    productos.push({...obj, id: 1, timestamp: new Date().getTime()})
                     await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(info, null,2))
                     return productos
                 }

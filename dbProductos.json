@@ -3,24 +3,30 @@
     "title": "cuaderno",
     "price": "150",
     "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-128.png",
-    "id": 1
+    "stock": 10,
+    "descripcion": "cuaderno",
+    "codigo": 123,
+    "id": 1,
+    "timestamp": 1651079063803
   },
   {
     "title": "escuadra",
     "price": "80",
     "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-128.png",
-    "id": 2
+    "stock": 20,
+    "descripcion": "escuadra",
+    "codigo": 456,
+    "id": 2,
+    "timestamp": 1651079135938
   },
   {
     "title": "globo terraquio",
     "price": "180",
     "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-128.png",
-    "id": 3
-  },
-  {
-    "title": "escuadra",
-    "price": "205",
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-128.png",
-    "id": 4
+    "stock": 10,
+    "descripcion": "globo terraquio",
+    "codigo": 789,
+    "id": 3,
+    "timestamp": 1651079206802
   }
 ]
