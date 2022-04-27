@@ -47,6 +47,12 @@ productosRouter.get('/', async(req, res) => {
     res.json(productos)
 })
 
+productosRouter.get('/:id', async(req, res) => {
+    const id = req.params.id;
+    const productos = await productosApi.listar(id)
+    res.json(productos)
+})
+
 productosRouter.post('/', soloAdmins, async(req, res) => {
     const productos = await productosApi.guardar(req.body)
     res.json(productos)
