@@ -95,6 +95,7 @@ carritosRouter.delete('/:id/productos/:id_prod', async(req, res) => {
 })
 
 
+  
 //--------------------------------------------
 // configuro el servidor
 
@@ -105,4 +106,8 @@ app.use(express.static('public'))
 app.use('/api/productos', productosRouter)
 app.use('/api/carritos', carritosRouter)
 
+app.get('*', function(req, res){
+    res.status(404)
+    .send({error: -2, descripcion: `no implementada`});
+});
 module.exports = app
